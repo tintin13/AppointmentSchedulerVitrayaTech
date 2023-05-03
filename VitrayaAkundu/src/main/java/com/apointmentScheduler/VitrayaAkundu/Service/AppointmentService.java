@@ -8,17 +8,9 @@ import java.util.Optional;
 public interface AppointmentService {
 
     Optional<Appointment> findById(Long appointmentId);
-
     List<Appointment> findAll();
-
-    List<Appointment> findByDateRangeSortedByPrice(LocalDate startDate, LocalDate endDate);
-
-    Appointment create(Appointment appointment);
-
+    Appointment create(Appointment appointment) throws Exception;
     Appointment update(Long appointmentId, Appointment appointment);
-
-    Appointment updateStatus(Long appointmentId, Appointment appointment);
-
     void deleteById(Long appointmentId);
 
 }
