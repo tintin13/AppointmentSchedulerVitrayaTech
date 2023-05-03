@@ -39,13 +39,13 @@ public class AppointmentServiceImplementation implements AppointmentService {
     @Override
     public Appointment create(Appointment appointment) throws Exception {
         List<Appointment> appointmentList = appointmentRepository.findAll();
-        if(doctorRepository.findById(appointment.getdoctorId()).isPresent()) {
+        /*if(doctorRepository.findById(appointment.getdoctorId()).isPresent()) {
            if((doctorRepository.findById(appointment.getdoctorId()).get().getAvailabilityStartTime().compareTo(appointment.getAppointmentEndTime()) <= 0)
                || (doctorRepository.findById(appointment.getdoctorId()).get().getAvailabilityEndTime().compareTo(appointment.getAppointmentEndTime())  >= 0))
            {
                throw new Exception();
            }
-        }
+        }*/
 
         for(Appointment existingAppointment : appointmentList) {
             if((existingAppointment.getAppointmentDate().compareTo(appointment.getAppointmentDate()) == 0)
